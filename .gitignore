@@ -11,3 +11,17 @@ Zombies/.DS_Store
 .DS_Store
 
 Zombies/.vs/*
+
+.vs/
+
+Library/*
+
+Logs/*
+
+Zombies/UserSettings/*
+
+UserSettings/*
+
+Zombies/obj/*
+
+obj/*
