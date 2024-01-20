@@ -9,13 +9,23 @@ public class Attack : MonoBehaviour
     float atkDuration = 0.3f;
     float atkTimer = 0f;
 
+    public Transform Aim;
+    public GameObject bullet;
+    public float fireForce = 10f;
+    float shootCooldown = 0.25f;
+    float shootTimer = 0.5f;
+
     // Update is called once per frame
     void Update()
     {
         CheckMeleeTimer();
-
+        shootTimer += Time.deltaTime;
         if(Input.GetKeyDown(KeyCode.E) || Input.GetMouseButton(0)){
             OnAttack();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButton(1)) {
+            OnShoot();
         }
     }
 
@@ -23,6 +33,15 @@ public class Attack : MonoBehaviour
         if(!isAttacking){
             Melee.SetActive(true);
             isAttacking = true;
+        }
+    }
+
+    void OnShoot() {
+        if (shootTimer > shootCooldown) {
+            shootTimer = 0;
+            GameObject intBullet = Instantiate(bullet, Aim.position, Aim.rotation);
+            intBullet.GetComponent<Rigidbody2D>().AddForce(-Aim.up * fireForce, ForceMode2D.Impulse);
+            Destroy(intBullet, 2f);
         }
     }
 
