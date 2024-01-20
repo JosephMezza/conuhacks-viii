@@ -9,9 +9,6 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject[] enemyPrefabs;
 
-    //Contols if mobs can/cannot spawn
-    private bool canSpawn = true;
-
     private void Start(){
         StartCoroutine(Spawner());
     }
