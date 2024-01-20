@@ -1,9 +1,13 @@
-.vscode/*
+Zombies/.vscode/*
 
-Logs/*
+Zombies/Logs/*
 
-Temp/*
+Zombies/Temp/*
 
-Library/*
+Zombies/Library/*
+
+Zombies/.DS_Store
 
 .DS_Store
+
+Zombies/.vs/*
