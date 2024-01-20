@@ -10,7 +10,10 @@ public class Enemy : MonoBehaviour
     Transform target;
     Vector2 moveDirection;
 
-    float health, maxHealth = 3f;
+    public float maxHealth = 3f;
+
+    private float health;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,7 +42,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage){
         health -= damage;
-        if(health < 0){
+        if(health <= 0){
             // die
             Destroy(gameObject);
         }
