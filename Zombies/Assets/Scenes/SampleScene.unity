@@ -687,6 +687,7 @@ GameObject:
   - component: {fileID: 1366077878}
   - component: {fileID: 1366077882}
   - component: {fileID: 1366077883}
+  - component: {fileID: 1366077884}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -855,6 +856,27 @@ MonoBehaviour:
   Aim: {fileID: 931102195}
   bullet: {fileID: 0}
   fireForce: 10
+--- !u!95 &1366077884
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366077877}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32a363ec788ea4e789bff9b2ea28012b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1450398342
 GameObject:
   m_ObjectHideFlags: 0
@@ -5491,8 +5513,8 @@ SceneRoots:
   - {fileID: 1366077881}
   - {fileID: 2075483446}
   - {fileID: 281938242}
-  - {fileID: 259508444}
-  - {fileID: 240222534}
   - {fileID: 286614305}
   - {fileID: 658532392}
   - {fileID: 1980685691}
+  - {fileID: 259508444}
+  - {fileID: 240222534}
