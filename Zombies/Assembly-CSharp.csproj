@@ -66,6 +66,7 @@
     <Compile Include="Assets/Movement.cs" />
     <Compile Include="Assets/EnemySpawner.cs" />
     <Compile Include="Assets/Attack.cs" />
+    <Compile Include="Assets/SpawnerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
