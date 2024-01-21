@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     Animator anim;
     private bool facingLeft = true;
 
+    public HealthBar health;
 
     void Start()
     {
@@ -78,4 +79,25 @@ public class Movement : MonoBehaviour
         transform.localScale = scale;
         facingLeft = !facingLeft;
     }
+
+    public void PlayerTakeDamage(float damage)
+    {
+        health.healthAmount -= damage;
+        health.healthBar.fillAmount = health.healthAmount / 100;
+
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Enemy enemy = collision.GetComponent<Enemy>();
+
+
+        if (enemy != null)
+        {
+            PlayerTakeDamage(25);
+
+        }
+    }
+
+
 }
