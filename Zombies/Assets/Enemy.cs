@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     Transform target;
     Vector2 moveDirection;
+    KillCounter killCounter;
 
     public float maxHealth = 3f;
 
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour
     void Start() {
         target = GameObject.Find("Player").transform;
         health = maxHealth;
+        killCounter = GameObject.Find("KCO").GetComponent<KillCounter>();
     }
 
     // Update is called once per frame
@@ -45,6 +47,7 @@ public class Enemy : MonoBehaviour
         if(health <= 0){
             // die
             Destroy(gameObject);
+            killCounter.AddKill();
         }
     }
 }
