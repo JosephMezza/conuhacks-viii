@@ -14,8 +14,13 @@ public class Movement : MonoBehaviour
 
     public bool isWalking = false;
 
+    Animator anim;
+    private bool facingLeft = true;
+
+
     void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -23,6 +28,10 @@ public class Movement : MonoBehaviour
     void Update()
     {
         ProcessInputs();
+        Animate();
+        if (input.x< 0 && !facingLeft || input.x >0 && facingLeft) {
+            Flip();
+        }
     }
 
     private void FixedUpdate(){
@@ -52,5 +61,21 @@ public class Movement : MonoBehaviour
 
         input.Normalize();
 
+    }
+
+    void Animate() {
+        anim.SetFloat("MoveX", input.x);
+        anim.SetFloat("MoveY", input.y);
+        anim.SetFloat("MoveMagnitude", input.magnitude);
+        anim.SetFloat("LastMoveX", lastMoveDirection.x);
+        anim.SetFloat("LastMoveY", lastMoveDirection.y);
+    }
+
+    void Flip() {
+        Vector3 scale = transform.localScale;
+        //flip sprite on x axis by multilying negative 1
+        scale.x *= -1;
+        transform.localScale = scale;
+        facingLeft = !facingLeft;
     }
 }
