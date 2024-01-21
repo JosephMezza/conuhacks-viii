@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
+using UnityEngine.EventSystems;
 
 public class Attack : MonoBehaviour
 {
@@ -15,21 +17,36 @@ public class Attack : MonoBehaviour
     float shootCooldown = 0.25f;
     float shootTimer = 0.5f;
 
+    private float gunDistance = 0.2f;
+
     // Update is called once per frame
     void Update()
     {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = mousePos - transform.position;
+
+        Aim.rotation = Quaternion.Euler(new Vector3(0,0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg));
+
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Aim.position = transform.position + Quaternion.Euler(0, 0, angle) * new Vector3(gunDistance, 0, 0);
+
         CheckMeleeTimer();
         shootTimer += Time.deltaTime;
-        if(Input.GetKeyDown(KeyCode.E) || Input.GetMouseButton(0)){
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             OnAttack();
-        }
 
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButton(1)) {
-            OnShoot();
+
+
+        }
+        if (Input.GetMouseButton(0))
+        {
+          OnShoot();
         }
     }
 
-    void OnAttack(){
+        void OnAttack(){
         if(!isAttacking){
             Melee.SetActive(true);
             isAttacking = true;
@@ -40,7 +57,7 @@ public class Attack : MonoBehaviour
         if (shootTimer > shootCooldown) {
             shootTimer = 0;
             GameObject intBullet = Instantiate(bullet, Aim.position, Aim.rotation);
-            intBullet.GetComponent<Rigidbody2D>().AddForce(-Aim.up * fireForce, ForceMode2D.Impulse);
+            intBullet.GetComponent<Rigidbody2D>().AddForce(Aim.right *fireForce, ForceMode2D.Impulse);
             Destroy(intBullet, 2f);
         }
     }
