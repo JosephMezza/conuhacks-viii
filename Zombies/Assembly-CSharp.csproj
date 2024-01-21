@@ -70,6 +70,11 @@
     <Compile Include="Assets/Attack.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets/Free Pixel Art Overworld Tileset/Free Pixel Art overworld tileset/readme.txt" />
+    <None Include="Assets/Free Pixel Art Overworld Tileset/Free Pixel Art overworld tileset/contact.txt" />
+    <None Include="Assets/Free Pixel Art Overworld Tileset/Free Pixel Art overworld tileset/changelog.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Hub/Editor/2022.3.17f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
       <Private>False</Private>
@@ -906,6 +911,10 @@
       <HintPath>Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Burst.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1064,6 +1073,10 @@
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library/ScriptAssemblies/Cinemachine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
